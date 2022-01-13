@@ -1,7 +1,7 @@
 [build]
-base = "frontend/"
-command = "npm run build"
-publish = "./build/"
+base = "./frontend/"
+command = "yarn build"
+publish = "frontend/build"
 
 [build.environment]
 REACT_APP_API_URL = "http://meu-endereco-producao-ficticio.com.br/api"
