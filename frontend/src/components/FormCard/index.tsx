@@ -16,7 +16,7 @@ function FormCard({ movieId }: Props) {
    const [movie, setMovie] = useState<Movie>();
 
    // useEffect para realizar a requisição.
-   // o movieId que chegou de argumento pro Props, TEM que ser colocado como dependência desse useEffect
+   // O movieId que chegou de argumento pro Props, TEM que ser colocado como dependência desse useEffect.
    useEffect(() => {
       axios.get(`${BASE_URL}/movies/${movieId}`)
          .then(response => {
