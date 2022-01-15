@@ -29,19 +29,24 @@ function Listing() {
             setPage(data);
          });
    }, [pageNumber]);
+   
+   /* 
+   FORMA ERRADA (TESTE)
+   axios.get(`${BASE_URL}/movies/2?size=12&page=0`)
+      .then(response => {
+         // .data: corpo da resposta 
+         console.log(response.data);
+         setPageNumber(data.number);
+      }); */
 
-
-   // FORMA ERRADA (TESTE)
-   // axios.get(`${BASE_URL}/movies/2?size=12&page=0`)
-   //    .then(response => {
-   //       // .data: corpo da resposta 
-   //       console.log(response.data);
-   //       setPageNumber(data.number);
-   //    });
+   // Muda o estado do useState PageNumber
+   const handlePageChange = (newPageNumber: number) => {
+      setPageNumber(newPageNumber);
+   }
 
    return (
       <>
-         <Pagination />
+         <Pagination page={page} onChange={handlePageChange} />
 
          <div className="container">
             <div className="row">
