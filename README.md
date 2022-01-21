@@ -16,53 +16,53 @@
 
 #### Espisódio 1
 
-- baseUrl: É uma formatação no uso de importações dentro da arquitetura do projeto, dando a possibilidade de importar qualquer arquivo sem precisar sair da pasta usando `../` e, a linha de código seguinte configura a função, que deve ser inserida no arquivo tsconfig.json. `"baseUrl": "./src"`.
+- **baseUrl**: É uma formatação no uso de importações dentro da arquitetura do projeto, dando a possibilidade de importar qualquer arquivo sem precisar sair da pasta usando `../` e, a linha de código seguinte configura a função, que deve ser inserida no arquivo tsconfig.json. `"baseUrl": "./src"`.
 
 ###### Rotas com React Router DOM
 
-- BrowserRouter: inicia a configuração das rotas.
+- **BrowserRouter**: inicia a configuração das rotas.
 
 ###### Componente MovieCard
 
-- Bootstrap Columns: O bootstrap por padrão configura todo o campo da página com 12 colunas, portanto, se for definido que um elemento ocupe metade da página, será inserido à classe, o número 6 compondo a coluna, desta forma: `col-6`. Caso queira que o elemento ocupe essa quantidade de colunas a partir de 576px de largura da tela - por exemplo - então a escrita fica assim: `col-sm-6`.
+- **Bootstrap Columns**: O bootstrap por padrão configura todo o campo da página com 12 colunas, portanto, se for definido que um elemento ocupe metade da página, será inserido à classe, o número 6 compondo a coluna, desta forma: `col-6`. Caso queira que o elemento ocupe essa quantidade de colunas a partir de 576px de largura da tela - por exemplo - então a escrita fica assim: `col-sm-6`.
 
 #### Espisódio 2
 
 ###### Configuração de Segurança (Liberar acesso de sistemas em locais dinstintos)
 
-- Classe SecurityConfig: o código da classe libera o acesso do backend que está hospedado no servidor para que ele possa ser acessado pelo frontend, que se econtra em outro lugar. Cria-se a partir do pacote dsmovie, um subpacote chamado config, e lá criado a classe e seus métodos.
+- **Classe SecurityConfig**: o código da classe libera o acesso do backend que está hospedado no servidor para que ele possa ser acessado pelo frontend, que se econtra em outro lugar. Cria-se a partir do pacote dsmovie, um subpacote chamado config, e lá criado a classe e seus métodos.
 
 ###### Domínio, ORM, Seed
 
-- Classe de associação: quando houver um duas tabelas com o relacionamento de _muitos para muitos_ deverá exisitir outra entre ambas, fazendo a associação. No caso da tabela de associação do nosso projeto, haverá um dado extra para fazer a ponte entre a tabela Movie e User.
+- **Classe de associação**: quando houver um duas tabelas com o relacionamento de _muitos para muitos_ deverá exisitir outra entre ambas, fazendo a associação. No caso da tabela de associação do nosso projeto, haverá um dado extra para fazer a ponte entre a tabela Movie e User.
 
-- Chave primária composta: é a chave primária da classe de associação, que é composta pela chave primária da classe Movie e User, logo, é preciso criar uma classe auxiliar (ScorePK) para guardar essas **duas chaves**, tranformando-se numa composição.
+- **Chave primária composta*: é a chave primária da classe de associação, que é composta pela chave primária da classe Movie e User, logo, é preciso criar uma classe auxiliar (ScorePK) para guardar essas **duas chaves**, tranformando-se numa composição.
 
-- Associar `Score` com `Movie`: o código seguinte forma um filme e associa-o ao objeto Score: `public void setMovie(Movie movie){id.setMovie(movie);}`. (A linha foi escrita na classe Score).
+- **Associar `Score` com `Movie`**: o código seguinte forma um filme e associa-o ao objeto Score: `public void setMovie(Movie movie){id.setMovie(movie);}`. (A linha foi escrita na classe Score).
 
-- Serializable: interface do java que indica que o objeto especificado pode ser convertido para bytes (importante para trafegar na rede e ser salvado em arquivos), e a CHAVE COMPOSTA exige o serializable
+- **Serializable**: interface do java que indica que o objeto especificado pode ser convertido para bytes (importante para trafegar na rede e ser salvado em arquivos), e a CHAVE COMPOSTA exige o serializable
 
 ###### Busca de Filmes 
 
-- MovieRepository: Responsável pelo CRUD e acesso ao BD.
+- **MovieRepository**: Responsável pelo CRUD e acesso ao BD.
 
-- @Autowired: instacia a classe automaticamente.
+- **@Autowired**: instacia a classe automaticamente.
 
 ###### Salvar Avaliação
 
-- PUT é idempotente: chamá-lo uma ou várias vezes sucessivamente terá o mesmo efeito. Diferentemente de POST, que pode ter efeitos adicionai.
+- *PUT é idempotente*: chamá-lo uma ou várias vezes sucessivamente terá o mesmo efeito. Diferentemente de POST, que pode ter efeitos adicionais.
 
-- @RequestBody: configura que o corpo receba a requisição do JSON e seja convertido no objeto indicado, que no caso, é o ScoreDTO.
+- **@RequestBody**: configura que o corpo receba a requisição do JSON e seja convertido no objeto indicado, que no caso, é o ScoreDTO.
 
-- saveAndFlush: as alterações serão liberadas para o DB imediatamente neste comando. Porém, com o `save`, isso não é necessariamente verdade e pode permanecer na memória até que os comandos flush ou commit sejam emitidos.
+- **saveAndFlush**: as alterações serão liberadas para o DB imediatamente neste comando. Porém, com o `save`, isso não é necessariamente verdade e pode permanecer na memória até que os comandos flush ou commit sejam emitidos.
 
-- HashSet<>(): é uma classe que implementa a interface. Ou seja, o atributo `Set` associado ao Score (`Set<Score>`), o `Set` em si é essa interface, e não um classe. Por isso que na sua instância não é chamado por new Set(), pois essa classe é implementada na classe HashSet.
+- `HashSet<>()`: é uma classe que implementa a interface. Ou seja, o atributo `Set` associado ao Score (`Set<Score>`), o `Set` em si é essa interface, e não um classe. Por isso que na sua instância não é chamado por new Set(), pois essa classe é implementada na classe HashSet.
 
-- **Set<Score>**: por que não usar `List<Score>`? já que referencia uma lista/conjunto/coleção? Porque em Java, numa situação de _muitos pra muitos_ - que é o caso da entidade Score - o que garante a NÃO repetição de dados é o Set.
+- `Set<Score>`: por que não usar `List<Score>`? já que referencia uma lista/conjunto/coleção? Porque em Java, numa situação de _muitos pra muitos_ - que é o caso da entidade Score - o que garante a NÃO repetição de dados é o Set.
 
-- OneToMany: One(A entidade atual) To(para) Many(muitos). Ou seja, Um movie pode ter muitos scores. **Portanto, `One` será a classe atual onde essa `annotation` está sendo escrita**.
+- **@OneToMany**: One(A entidade atual) To(para) Many(muitos). Ou seja, Um movie pode ter muitos scores. **Portanto, `One` será a classe atual onde essa `annotation` está sendo escrita**.
 
-- @OneToMany(mappedById = "id.movie"): o `id` é o nome da chave primária do score (ScorePK), e o `movie` é o nome do atributo existente na classe também do ScorePK. Essa linha de código permite acessar todas as avaliações de umm certo filme, a partir de um objeto de filme (a classe Movie). E todo esse processo é feito com o user também.
+- **@OneToMany(mappedById = "id.movie")**: o `id` é o nome da chave primária do score (ScorePK), e o `movie` é o nome do atributo existente na classe também do ScorePK. Essa linha de código permite acessar todas as avaliações de umm certo filme, a partir de um objeto de filme (a classe Movie). E todo esse processo é feito com o user também.
 
 
 ###### Validação do Postgres local
