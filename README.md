@@ -30,13 +30,13 @@
 
 ###### Configuração de Segurança (Liberar acesso de sistemas em locais dinstintos)
 
-- **Classe SecurityConfig**: o código da classe libera o acesso do backend que está hospedado no servidor para que ele possa ser acessado pelo frontend, que se econtra em outro lugar. Cria-se a partir do pacote dsmovie, um subpacote chamado config, e lá criado a classe e seus métodos.
+- **Classe SecurityConfig**: o código da classe libera o acesso do backend (hospedado no servidor) para que ele possa ser acessado pelo frontend, que se econtra em outro lugar. Cria-se a partir do pacote dsmovie, um subpacote chamado config, e lá criado a classe e seus métodos.
 
 ###### Domínio, ORM, Seed
 
 - **Classe de associação**: quando houver um duas tabelas com o relacionamento de _muitos para muitos_ deverá exisitir outra entre ambas, fazendo a associação. No caso da tabela de associação do nosso projeto, haverá um dado extra para fazer a ponte entre a tabela Movie e User.
 
-- **Chave primária composta*: é a chave primária da classe de associação, que é composta pela chave primária da classe Movie e User, logo, é preciso criar uma classe auxiliar (ScorePK) para guardar essas **duas chaves**, tranformando-se numa composição.
+- **Chave primária composta**: é a chave primária da classe de associação, que é composta pela chave primária da classe Movie e User, logo, é preciso criar uma classe auxiliar (ScorePK) para guardar essas **duas chaves**, tranformando-se numa composição.
 
 - **Associar `Score` com `Movie`**: o código seguinte forma um filme e associa-o ao objeto Score: `public void setMovie(Movie movie){id.setMovie(movie);}`. (A linha foi escrita na classe Score).
 
@@ -50,7 +50,7 @@
 
 ###### Salvar Avaliação
 
-- *PUT é idempotente*: chamá-lo uma ou várias vezes sucessivamente terá o mesmo efeito. Diferentemente de POST, que pode ter efeitos adicionais.
+- **PUT é idempotente**: chamá-lo uma ou várias vezes sucessivamente terá o mesmo efeito. Diferentemente de POST, que pode ter efeitos adicionais.
 
 - **@RequestBody**: configura que o corpo receba a requisição do JSON e seja convertido no objeto indicado, que no caso, é o ScoreDTO.
 
@@ -68,9 +68,9 @@
 ###### Validação do Postgres local
 
 - Os três perfis de projeto:
-	- test: no momento, a propriedade da aplicação está com o perfil ativado como test, configurado lá no arquivo application.properties. Com isso, será criado alguns arquivos de configuração para configurar outros perfis de projeto
-	- dev: vai ser um perfil de uma homologação (confirmação), para testar o projeto no BD do Postgres localmente.
-	- prod: é o perfil que vai rodar quando instalado na nuvem Heroku.
+	- **test**: no momento, a propriedade da aplicação está com o perfil ativado como test, configurado lá no arquivo application.properties. Com isso, será criado alguns arquivos de configuração para configurar outros perfis de projeto
+	- **dev**: vai ser um perfil de uma homologação (confirmação), para testar o projeto no BD do Postgres localmente.
+	- **prod**: é o perfil que vai rodar quando instalado na nuvem Heroku.
 
 ###### Back-end no Heroku
 
@@ -104,4 +104,4 @@ dauuv9j80p0sgj
 
 ###### Parâmetro de rota: userParams
 
-- o movieId que chegou de argumento pro Props, TEM que ser colocado como dependência do useEffect - da function FormCard - caso contrário a requisição entrará em loop repetido, pois seu valor foi usado (${movieId}), portanto é essecial usar esse valor como parâmetro, guiando para uma nova requisição apenas quando este valor for mudado.
+- **movieId**: o movieId que chega como argumento ao Props, PRECISA ser colocado como dependência do useEffect - _da function FormCard_ - caso contrário a requisição entrará em loop repetido, pois seu valor foi usado (${movieId}), portanto é essecial usar esse valor como parâmetro, guiando para uma nova requisição apenas quando este valor for mudado.
