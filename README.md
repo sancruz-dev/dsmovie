@@ -1,11 +1,16 @@
 # ![DevSuperior logo](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/devsuperior-logo-small.png) Semana Spring React
 >  *Um app completo com as tecnologias mais demandadas do mercado*
 
-## Realização
-[DevSuperior - Escola de programação](https://devsuperior.com.br)
+## Certificado
+<img height="350px" src="https://user-images.githubusercontent.com/83969467/151854689-976ebabf-a766-482d-99dd-393b42beadd7.png">
 
-[![DevSuperior no Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig)
-[![DevSuperior no Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
+
+## Referência
+- [DevSuperior - Escola de programação](https://devsuperior.com.br)
+
+- [@devsuperior](https://github.com/devsuperior)
+
+- [![DevSuperior no Instagram](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/ig-icon.png)](https://instagram.com/devsuperior.ig) [![DevSuperior no Youtube](https://raw.githubusercontent.com/devsuperior/bds-assets/main/ds/yt-icon.png)](https://youtube.com/devsuperior)
 
 <p align="center">
 	______ OBSERVAÇÕES PESSOAIS ______
