@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_movie")
 public class Movie {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -21,18 +21,26 @@ public class Movie {
 	private Double score;
 	private Integer count;
 	private String image;
-	
-	// Set<Score>: atributo no qual referencia todo o conjunto de avaliações referentes à um filme.
-	// OneToMany: One(A entidade atual) To(para) Many(muitos). Ou seja, Um movie pode ter muitos scores.
+
+	// Set<Score>: atributo no qual referencia todo o conjunto de avaliações
+	// referentes à um filme.
+	// OneToMany: One(A entidade atual) To(para) Many(muitos). Ou seja, Um movie
+	// pode ter muitos scores.
 	@OneToMany(mappedBy = "id.movie")
 	private Set<Score> scores = new HashSet<>();
-	
-	public Movie(Long id, String title, Double score, Integer count, String image) {
-		this.id = id;
-		this.title = title;
-		this.score = score;
-		this.count = count;
-		this.image = image;
+
+	// public Movie(Long id, String title, Double score, Integer count, String
+	// image) {
+	// this.id = id;
+	// this.title = title;
+	// this.score = score;
+	// this.count = count;
+	// this.image = image;
+	// }
+
+	// Para o erro 500 não persistir no projeto,
+	// é necessário que o contrutor não tenha argumentos
+	public Movie() {
 	}
 
 	public Long getId() {
@@ -78,6 +86,5 @@ public class Movie {
 	public Set<Score> getScores() {
 		return scores;
 	}
-	
-	
+
 }
