@@ -29,18 +29,15 @@ public class Movie {
 	@OneToMany(mappedBy = "id.movie")
 	private Set<Score> scores = new HashSet<>();
 
-	// public Movie(Long id, String title, Double score, Integer count, String
-	// image) {
-	// this.id = id;
-	// this.title = title;
-	// this.score = score;
-	// this.count = count;
-	// this.image = image;
-	// }
-
-	// Para o erro 500 não persistir no projeto,
-	// é necessário que o contrutor não tenha argumentos
 	public Movie() {
+	}
+
+	public Movie(Long id, String title, Double score, Integer count, String image) {
+		this.id = id;
+		this.title = title;
+		this.score = score;
+		this.count = count;
+		this.image = image;
 	}
 
 	public Long getId() {
